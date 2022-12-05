@@ -123,8 +123,8 @@ rec {
             volumes = [
               "${config.cardano-configurations}/network/${config.network.name}/cardano-node:/config"
               "${config.cardano-configurations}/network/${config.network.name}/genesis:/genesis"
-              "${nodeDbVol}:/data"
-              "${nodeIpcVol}:/ipc"
+              "${toString ./.}/data/cardano-node/{nodeDbVol}:/data"
+              "${toString ./.}/data/cardano-node/{nodeIpcVol}:/ipc"
             ];
             command = [
               "run"
